@@ -1,0 +1,2 @@
+H3F          N2   C6   C11 CD    
+NPH          C4N  N1N  O3P P'A2  N1A
