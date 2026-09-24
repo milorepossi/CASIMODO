@@ -69,7 +69,7 @@ method_clustering_conformations="ward"
 #Parameters for performing clustering of the conformations
 parameters_clustering_conformations=(5.0)  
 #Choose the community of local variables to process. -1 for all communities, 0 for first community, 1 for second community, etc.
-community_to_process=4 
+community_to_process=-1
 # Whether to split the trajectory by conformations or not. 1 for True, 0 for False. 
 split_trajectory=0 
 
