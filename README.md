@@ -26,14 +26,11 @@ This section walks you through the basic steps needed to get CASIMODO up and run
 
 To get started, you’ll need a Python environment (Python 3.9 or higher).
 
-You’ll need the following Python packages installed:
-
-- `numpy` < 2.0
-- `scipy`
-- `sklearn`
-- `matplotlib`
+You should then install the following packages on this environment:
 - `MDAnalysis`
+- `scikit-learn`
 - `hdbscan`
+
 
 You can then download the CASIMODO repository `CASIMODO_utils/` from Github. 
 

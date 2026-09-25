@@ -7,6 +7,11 @@ from contextlib import redirect_stdout, redirect_stderr
 
 import numpy as np	
 
+if hasattr(np, "trapezoid"):
+    from numpy import trapezoid as trapz
+else:
+    from numpy import trapz
+
 from scipy.stats import t
 from scipy.spatial.distance import pdist, squareform
 from scipy.sparse.csgraph import connected_components
@@ -756,7 +761,7 @@ def smooth_local_variable(y, delta_y,config):
     y_smooth = np.exp(log_density)  # Convert from log-density to density
 
     # Step 4: Normalize the density so it integrates to 1
-    y_smooth /= np.trapz(y_smooth, x_smooth.ravel())
+    y_smooth /= trapz(y_smooth, x_smooth.ravel())
     
     # Return 1D arrays for usability
     return x_smooth.ravel(), y_smooth
@@ -922,7 +927,7 @@ def get_labels_discretization(minima, x_smooth, y_smooth,order_labels):
         #compute integral in each region (between minima)
         integrals = []
         for i in range(len(all_minima) - 1):
-            integral_region = np.trapz(y_smooth[all_minima[i]:all_minima[i + 1]], x_smooth[all_minima[i]:all_minima[i + 1]])
+            integral_region = trapz(y_smooth[all_minima[i]:all_minima[i + 1]], x_smooth[all_minima[i]:all_minima[i + 1]])
             integrals.append(integral_region)
         
         sorted_indices = np.argsort(integrals)[::-1]  # Sort by integral (descending)
